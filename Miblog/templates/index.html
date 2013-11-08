@@ -1,0 +1,42 @@
+<!--div class="container">
+  <h1>
+    Primer Blog
+  </h1>
+  
+  <h2>
+    {{titulo}}
+  </h2>
+  
+  <h3>
+    Publicado el {{fecha}} por {{author}}
+  </h3> 
+  <article>
+	  <p>{{contenido}}</p>
+  </article>
+</div-->
+
+
+<div class="container">
+  <h1>
+    Mi primer blog
+  </h1>
+  
+  <hr />
+  {% for articulo in articulos %}
+  <div class="art">
+    <h2>
+      {{ articulo.titulo }}
+    </h2>
+    
+    <h3>
+      Publicado el {{ articulo.fecha }} por {{ articulo.autor }}
+    </h3>
+    
+    <p>
+      {{ articulo.texto }}
+    </p>
+  </div>
+  
+  <hr />
+  {% endfor %}
+</div>
