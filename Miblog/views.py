@@ -9,4 +9,4 @@ def home(request):
 	#	'contenido' : 'aqui va el contenido ....',
 	#}
 	entradas = Articulos.objects.all()[:10]
-	return render_to_response('index.html',contenido)
+	return render_to_response('index.html',{'articulos' : entradas})
