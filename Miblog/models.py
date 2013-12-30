@@ -12,4 +12,4 @@ class Comentarios(models.Model):
    cuerpo = models.TextField()
    fecha_pub = models.DateTimeField('fecha publicacion')
    articulo = models.ForeignKey(Articulos)
-	
+
