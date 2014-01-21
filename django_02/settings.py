@@ -112,7 +112,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # "../Miblog/templates"
-    "/data/paginasweb/django_02/Miblog/templates",	
+    "/data/paginasweb/django_02/Miblog/templates",
 )
 
 INSTALLED_APPS = (
