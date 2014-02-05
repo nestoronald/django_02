@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'django_02.views.home', name='home'),
     # url(r'^django_02/', include('django_02.foo.urls')),
      url(r'^$','Miblog.views.home', name='home'),
+     url(r'^login/$', 'Miblog.views.login_view'),
+    url(r'^logout/$', 'Miblog.views.logout_view'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

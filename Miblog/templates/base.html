@@ -18,9 +18,20 @@
 				<div class="title">{% block titulo %} {% endblock %}</div>
 			</div>
 			<div class="row-fluid">
-                    {% block contenido %} {% endblock %}
+					<div class="main-content">
+                    	{% block contenido %} {% endblock %}
+                    </div>
+                    <div class="sidebar">
+                    	{% if user.is_authenticated %}
+                    		<p>Bienvenido {{ user }} </p>
+                    		<a href="/logout" title="Cerrar sesion">Cerrar Sesion</a>
+                    	{% else %}
+                    		<a href="/login" title="Ingresar">Ingresar</a>
+                    	{% endif %}
+
+                    </div>
             </div>
-			<!-- aqui se incluiran los códigos d elas vistas que use cada metodo de los controladores -->
+
 			<div class="footer">
 				<p>&copy; Ro 2013</p>
 			</div>

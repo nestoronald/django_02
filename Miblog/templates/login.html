@@ -1,3 +1,12 @@
-<div class="login">
+{% extends 'base.html' %}
+  {% block contenido %}
+    <div class="login">
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{mensaje}}
+            {{form.as_p}}
+            <input type="submit" value="Ingresar" class="btn">
+        </form>
 
-</div>
+    </div>
+  {% endblock %}
