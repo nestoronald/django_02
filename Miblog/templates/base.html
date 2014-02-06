@@ -11,7 +11,11 @@
 				<ul class="nav nav-pills pullright">
 					<li><a href="/">Inicio</a></li>
 					<li><a href="/">Todos los articulos</a></li>
-					<li><a href="/acceso">Acceso</a></li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url "vista_logout" %}"> Cerrar Sesion </a></li>
+					{% else %}
+					<li><a href="{% url "vista_login" %}"> Ingresar </a></li>
+					{% endif %}
 					<li><a href="/contacto">Contacto</a></li>
 					<h3 class="text-muted"></h3>
 				</ul>
@@ -22,16 +26,14 @@
                     	{% block contenido %} {% endblock %}
                     </div>
                     <div class="sidebar">
-                    	{% if user.is_authenticated %}
-                    		<p>Bienvenido {{ user }} </p>
-                    		<a href="/logout" title="Cerrar sesion">Cerrar Sesion</a>
-                    	{% else %}
-                    		<a href="/login" title="Ingresar">Ingresar</a>
-                    	{% endif %}
-
+                    	{%if user.is_authenticated %}
+                			<p>Bienvenido {{ user }} </p>
+                			<!-- <img src="{{get_image_profile}}" width="50px" heigth="50px"/> -->
+              			{% else %}
+               				 <a href="/login/" class="btn btn-primary">Ingresar</a>
+              			{% endif %}
                     </div>
             </div>
-
 			<div class="footer">
 				<p>&copy; Ro 2013</p>
 			</div>

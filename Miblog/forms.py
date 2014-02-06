@@ -48,8 +48,11 @@ class ArticulosForm(forms.ModelForm):
           raise forms.ValidationError("El fecha no debe ser mayor al dia de hoy")
 
        return fecha_articulo
+# class LoginForm(forms.Form):
+#   username = forms.CharField(widget=forms.TextInput(attrs={'title': 'Su Nombre'}))
+#   password = forms.CharField(widget=forms.PasswordInput(render_value=False))
 class LoginForm(forms.Form):
-  username = forms.CharField(widget=forms.TextInput(attrs={'title': 'Su Nombre'}))
+  username = forms.CharField(widget=forms.TextInput())
   password = forms.CharField(widget=forms.PasswordInput(render_value=False))
 
 
