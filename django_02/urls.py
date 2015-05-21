@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^articulos/', include('Miblog.urls')),
+    url(r'^chaining/', include('smart_selects.urls')),
     # Examples:
     # url(r'^$', 'django_02.views.home', name='home'),
     # url(r'^django_02/', include('django_02.foo.urls')),

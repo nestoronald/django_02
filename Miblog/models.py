@@ -20,3 +20,33 @@ class Perfil(models.Model):
     direccion = models.TextField()
     def __unicode__(self):
         return self.user.username
+
+class Continent(models.Model):
+    continent = models.CharField(max_length=100)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return unicode(self.continent)
+
+class Country(models.Model):
+    country = models.CharField(max_length=100)
+    continent = models.ForeignKey(Continent)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return unicode(self.country)
+
+# class Location(models.Model)
+#     continent = models.ForeignKey(Continent)
+#     country = models.ForeignKey(Country)
+#     area = models.ForeignKey(Area)
+#     city = models.CharField(max_length=50)
+#     street = models.CharField(max_length=100)
+
+from smart_selects.db_fields import ChainedForeignKey 
+
+class Location(models.Model):
+    continent = models.ForeignKey(Continent)
+    country = ChainedForeignKey(Country,chained_field="continent",chained_model_field="continent",show_all=False,auto_choose=True)
+    city = models.CharField(max_length=50)
+    street = models.CharField(max_length=100)
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return unicode(self.city)
